@@ -1,5 +1,6 @@
 <script setup>
 import { useUserStore } from '../stores/user';
+import { logo } from '../component/Logo';
 import { useRouter } from 'vue-router';
 import * as Auth from '../api/auth';
 const user = useUserStore();
@@ -13,13 +14,21 @@ const logout = () => {
     }
   });
 }
+
 </script>
 
 <template>
   <div id="header">
     <nav id="header-nav">
       <div class="left-header">
-        <router-link class="big-icon" to="/">Placeholder</router-link>
+        <router-link class="link" to="/">หน้าหลัก</router-link>
+        <router-link class="link" to="/">การใช้งาน</router-link>
+        <router-link class="link" to="/">บริการของเรา</router-link>
+        <router-link class="link" to="/">เพิ่มเติม</router-link>
+      </div>
+      <div id="logo-header">
+        {{logo}}
+        <img v-bind:src='logoImage'>
       </div>
       <div class="right-header">
         <div v-if="user.isLoggedIn">
@@ -48,8 +57,10 @@ const logout = () => {
     align-items: center;
 }
 .left-header {
+  display: flex;
+    width: 400px;
     align-content: flex-start;
-    justify-content: center;
+    justify-content: space-between;
 }
 .right-header {
     align-content: flex-end;
@@ -63,10 +74,27 @@ const logout = () => {
     text-decoration: none;
 }
 .link {
+    position: relative;
     font-size: 1.1rem;
     color: #fff;
     text-decoration: none;
-    margin-left: 1rem;
     font-weight: 600;
+    margin-left: 1rem;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; 
+    background-color: #fff;
+    transition: width 0.2s ease; 
+}
+
+.link:hover::before {
+    width: 103%;
 }
 </style>
+
