@@ -29,31 +29,21 @@ const logout = () => {
 </script>
 
 <template>
-<<<<<<< HEAD
-    <div id="header">
-      <nav id="header-nav">
-        <div class="left-header">
-          
-          <router-link class="link" to="/">หน้าหลัก</router-link>
-          <router-link class="link" to="/">แบบทดสอบ</router-link>
-          <router-link class="link" to="/">ตารางสรุป</router-link>
-          <router-link class="link" to="/">แชท</router-link>
-          <router-link class="link" to="/">โทรฉุกเฉิน</router-link>
 =======
   <div id="header">
     <Toast />
     <nav id="header-nav">
       <div class="left-header">
         <router-link class="link" to="/">หน้าหลัก</router-link>
-        <router-link class="link" to="/">การใช้งาน</router-link>
-        <router-link class="link" to="/">บริการของเรา</router-link>
-        <router-link class="link" to="/">เพิ่มเติม</router-link>
+          <router-link class="link" to="/">แบบทดสอบ</router-link>
+          <router-link class="link" to="/">ตารางสรุป</router-link>
+          <router-link class="link" to="/">แชท</router-link>
+          <router-link class="link" to="/">โทรฉุกเฉิน</router-link>
       </div>
       <div class="right-header">
         <div v-if="user.isLoggedIn">
           <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
           <router-link class="link" @click="logout" to="/">Logout</router-link>
->>>>>>> 892665a32ff65341089905c7987220ed7412b030
         </div>
         <div class="middle-header">
           <img src="/src/assets/vue.svg" alt="logo" class="logo-image" />
