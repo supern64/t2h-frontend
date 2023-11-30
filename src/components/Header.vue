@@ -1,23 +1,47 @@
 <script setup>
 import { useUserStore } from '../stores/user';
 import { useRouter } from 'vue-router';
+import { useToast } from 'primevue/usetoast';
+import Toast from 'primevue/toast';
 import * as Auth from '../api/auth';
+
 const user = useUserStore();
 const router = useRouter();
+const toast = useToast();
 
 const logout = () => {
   Auth.logout().then((res) => {
     if (res.status === "SUCCESS") {
+      toast.add({
+        severity: "success",
+        summary: "Success",
+        detail: "Logout successful",
+        life: 3000
+      });
       user.logout();
       router.push("/");
     }
   });
 }
 
+
+
 </script>
 
 <template>
+<<<<<<< HEAD
+    <div id="header">
+      <nav id="header-nav">
+        <div class="left-header">
+          
+          <router-link class="link" to="/">หน้าหลัก</router-link>
+          <router-link class="link" to="/">แบบทดสอบ</router-link>
+          <router-link class="link" to="/">ตารางสรุป</router-link>
+          <router-link class="link" to="/">แชท</router-link>
+          <router-link class="link" to="/">โทรฉุกเฉิน</router-link>
+=======
   <div id="header">
+    <Toast />
     <nav id="header-nav">
       <div class="left-header">
         <router-link class="link" to="/">หน้าหลัก</router-link>
@@ -29,18 +53,29 @@ const logout = () => {
         <div v-if="user.isLoggedIn">
           <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
           <router-link class="link" @click="logout" to="/">Logout</router-link>
+>>>>>>> 892665a32ff65341089905c7987220ed7412b030
         </div>
-        <div v-else>
-          <router-link class="link" to="/login">Login</router-link>
-          <router-link class="link" to="/signup">Signup</router-link>
+        <div class="middle-header">
+          <img src="/src/assets/vue.svg" alt="logo" class="logo-image" />
         </div>
-      </div>
-    </nav>
-  </div>
+        <div class="right-header">
+          <div v-if="user.isLoggedIn">
+            <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
+            <router-link class="link" @click="logout" to="/">Logout</router-link>
+          </div>
+          <div v-else>
+            <router-link class="link" to="/login">Login</router-link>
+            <router-link class="link" to="/signup">Signup</router-link>
+          </div>
+        </div>
+      </nav>
+      <img src="/src/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
+    </div>
 </template>
 
 <style scoped>
 #header {
+    position: relative;
     color: #fff;
     margin-bottom: 1.5rem;
     border-radius: 5px;
@@ -48,12 +83,17 @@ const logout = () => {
 }
 #header-nav {
     width: 100%;
+    max-width: 100%;
     display: flex;
     align-items: center;
 }
+.middle-header{
+  flex-grow: 1; /* Grow to take up available space */
+  width: 100%;
+}
 .left-header {
   display: flex;
-    width: 400px;
+    width: 490px;
     align-content: flex-start;
     justify-content: space-between;
 }
@@ -90,6 +130,34 @@ const logout = () => {
 
 .link:hover::before {
     width: 103%;
+}
+
+.logo-image {
+  width: 40px; 
+}
+
+.rainbow-image{
+  position: absolute;
+  right: -70px;
+  top: -87px;
+  z-index: -1;
+  width: 400px;
+  opacity: 0; 
+  height: 300px; 
+  margin-right: 10px; 
+  animation: slideAndFade 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes slideAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotate(35deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(20deg);
+  }
 }
 </style>
 

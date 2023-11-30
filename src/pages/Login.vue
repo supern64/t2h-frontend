@@ -2,21 +2,34 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '../stores/user';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import Password from 'primevue/password';
+import { useToast } from 'primevue/usetoast';
 import * as Auth from '../api/auth';
-import Error from '../components/Error.vue';
 const user = useUserStore();
-const error = ref("");
 const router = useRouter();
-
+const toast = useToast();
 const email = ref();
 const password = ref();
 
 const login = () => {
   Auth.login(email.value, password.value).then((res) => {
     if (res.status === "ERROR") {
-      error.value = res.data.error;
+      toast.add({
+        severity: "error",
+        summary: "Error",
+        detail: res.data.error,
+        life: 5000
+      });
     } else {
       user.setUser(res.data.user);
+      toast.add({
+        severity: "success",
+        summary: "Success",
+        detail: "Login successful",
+        life: 3000
+      });
       router.push("/");
     }
   });
@@ -26,15 +39,17 @@ const login = () => {
 <template>
   <div class="login-form">
     <span style="font-size: 1.5rem; font-weight: 700;">Login</span>
-    <Error v-if="error !== ''" :message="error" />
     <div class="input-group">
-      E-mail:
-      <input type="text" id="email" v-model="email" placeholder="E-mail" />
-      Password:
-      <input type="password" id="password" v-model="password" placeholder="Password" />
+      <span class="p-input-icon-left">
+        <i class="pi pi-envelope"></i>
+        <InputText id="email" v-model="email" placeholder="E-mail" />
+      </span>
+      <span>
+        <Password id="password" v-model="password" :feedback="false" placeholder="Password" toggle-mask=""/>
+      </span>
     </div>
     <div class="input-group">
-      <button @click="login">Login</button>
+      <Button label="Login" @click="login" />
     </div>
   </div>
 </template>
@@ -47,29 +62,17 @@ const login = () => {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    max-width: 500px;
+    max-width: fit-content;
     border-radius: 5px;
     background-color: #303030;
 }
 .input-group {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
-.input-group input {
+.input-group span {
     margin-top: 0.5rem;
-    padding: 0.35rem;
-    border-radius: 5px;
-    border: none;
-    background-color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000;
-}
-button {
-  background-color: #242424;
+    width: 100%;
 }
 </style>
