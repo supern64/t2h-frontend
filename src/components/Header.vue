@@ -1,6 +1,5 @@
 <script setup>
 import { useUserStore } from '../stores/user';
-import { logo } from '../component/Logo';
 import { useRouter } from 'vue-router';
 import * as Auth from '../api/auth';
 const user = useUserStore();
@@ -25,10 +24,6 @@ const logout = () => {
         <router-link class="link" to="/">การใช้งาน</router-link>
         <router-link class="link" to="/">บริการของเรา</router-link>
         <router-link class="link" to="/">เพิ่มเติม</router-link>
-      </div>
-      <div id="logo-header">
-        {{logo}}
-        <img v-bind:src='logoImage'>
       </div>
       <div class="right-header">
         <div v-if="user.isLoggedIn">
