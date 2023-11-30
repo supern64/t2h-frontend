@@ -11,14 +11,12 @@ import App from './App.vue'
 import Home from './pages/Home.vue'
 import Login from './pages/Login.vue'
 import Signup from './pages/Signup.vue'
-<<<<<<< HEAD
 import Test from './pages/Test2.vue'
 import Garph from './pages/Garph.vue'
 import Chat from './pages/Chat.vue'
 import Emergency from './pages/Emergency.vue'
-=======
 import User from './pages/User.vue'
->>>>>>> 892665a32ff65341089905c7987220ed7412b030
+
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -29,14 +27,12 @@ const router = createRouter({
         { path: '/', component: Home },
         { path: '/login', component: Login },
         { path: '/signup', component: Signup },
-<<<<<<< HEAD
         { path: '/test', component: Test },
         { path: '/garph', component: Garph },
         { path: '/chat', component: Chat },
-        { path: '/emergency', component: Emergency }
-=======
+        { path: '/emergency', component: Emergency },
         { path: "/user/:id", component: User }
->>>>>>> 892665a32ff65341089905c7987220ed7412b030
+
     ]
 })
 

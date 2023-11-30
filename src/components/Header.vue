@@ -29,22 +29,22 @@ const logout = () => {
 </script>
 
 <template>
-=======
   <div id="header">
     <Toast />
     <nav id="header-nav">
       <div class="left-header">
         <router-link class="link" to="/">หน้าหลัก</router-link>
-          <router-link class="link" to="/">แบบทดสอบ</router-link>
-          <router-link class="link" to="/">ตารางสรุป</router-link>
-          <router-link class="link" to="/">แชท</router-link>
-          <router-link class="link" to="/">โทรฉุกเฉิน</router-link>
+          <router-link class="link" to="/test">แบบทดสอบ</router-link>
+          <router-link class="link" to="/garph">ตารางสรุป</router-link>
+          <router-link class="link" to="/chat">แชท</router-link>
+          <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
       <div class="right-header">
         <div v-if="user.isLoggedIn">
           <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
           <router-link class="link" @click="logout" to="/">Logout</router-link>
         </div>
+      </div>
         <div class="middle-header">
           <img src="/src/assets/vue.svg" alt="logo" class="logo-image" />
         </div>
@@ -67,6 +67,7 @@ const logout = () => {
 #header {
     position: relative;
     color: #fff;
+    padding-top: 1rem;
     margin-bottom: 1.5rem;
     border-radius: 5px;
     width: 100%;
@@ -78,8 +79,7 @@ const logout = () => {
     align-items: center;
 }
 .middle-header{
-  flex-grow: 1; /* Grow to take up available space */
-  width: 100%;
+  flex-grow: 1; 
 }
 .left-header {
   display: flex;
@@ -123,7 +123,11 @@ const logout = () => {
 }
 
 .logo-image {
-  width: 40px; 
+  position: absolute;
+  width: 40px;
+  left: 46vw;
+  top: 1rem;
+  display: block;
 }
 
 .rainbow-image{
