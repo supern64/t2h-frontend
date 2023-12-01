@@ -3,6 +3,7 @@
 
 <template>
   <section id="Main">
+    <img src="/src/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
     <div class="img">
       <img src="/src/assets/vue.svg" alt="logo" class="head-logo-image" />
       <button>something</button>
@@ -25,6 +26,7 @@ button{
 }
 .home-rb{
   position: absolute;
+  bottom: 0;
   width: 400px;
 }
 .img{
@@ -39,5 +41,27 @@ button{
   width: 280px;
   margin: auto;
   margin-top: 2rem;
+}
+.rainbow-image{
+  position: absolute;
+  right: -90px;
+  top: -145px;
+  z-index: -1;
+  width: 400px;
+  opacity: 0; 
+  height: 300px; 
+  margin-right: 10px; 
+  animation: slideAndFade 1s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes slideAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotate(35deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(20deg);
+  }
 }
 </style>

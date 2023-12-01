@@ -34,7 +34,7 @@ const router = createRouter({
         { path: "/user/:id", component: User }
 
     ]
-})
+});
 
 app.use(PrimeVue)
 app.use(ToastService)

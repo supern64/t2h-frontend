@@ -59,7 +59,6 @@ const logout = () => {
           </div>
         </div>
       </nav>
-      <img src="/src/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
     </div>
 </template>
 
@@ -126,32 +125,12 @@ const logout = () => {
   position: absolute;
   width: 40px;
   left: 46vw;
-  top: 1rem;
+  top: 0.5rem;
   display: block;
 }
 
-.rainbow-image{
-  position: absolute;
-  right: -70px;
-  top: -87px;
-  z-index: -1;
-  width: 400px;
-  opacity: 0; 
-  height: 300px; 
-  margin-right: 10px; 
-  animation: slideAndFade 1s ease-out forwards;
-  pointer-events: none;
-}
 
-@keyframes slideAndFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px) rotate(35deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) rotate(20deg);
-  }
-}
+
+
 </style>
 
