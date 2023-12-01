@@ -30,7 +30,7 @@ const logout = () => {
 
 <template>
   <div id="header">
-    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
+
     <Toast />
     <nav id="header-nav">
       <div class="left-header">
@@ -77,6 +77,7 @@ const logout = () => {
     border-radius: 5px;
     width: 100%;
     animation: slideleftAndFade 1s ease-out forwards;
+    z-index: 2;
 }
 #header-nav {
     width: 100%;

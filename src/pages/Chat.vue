@@ -3,6 +3,7 @@
 
 <template>
   <section>
+    
     <div class="chat">
       <header>
         <div class="in-head">
@@ -63,10 +64,12 @@
         </div>
       </div>
     </div>
+        <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
   </section>
 </template>
 
 <style scoped>
+
   section{
     height: 82vh;
     color: black;
@@ -186,5 +189,13 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+.bg-image{
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+    left: 3px;
+  z-index: -1;
+  position: absolute;
 }
 </style>
