@@ -46,7 +46,7 @@ const logout = () => {
         </div>
       </div>
         <div class="middle-header">
-          <img src="/src/assets/vue.svg" alt="logo" class="logo-image" />
+          <img src="/src/assets/2.png" alt="logo" class="logo-image" />
         </div>
         <div class="right-header">
           <div v-if="user.isLoggedIn">
@@ -123,8 +123,8 @@ const logout = () => {
 
 .logo-image {
   position: absolute;
-  width: 40px;
-  left: 46vw;
+  width: 85px;
+  left: 44.5vw;
   top: 0.5rem;
   display: block;
 }

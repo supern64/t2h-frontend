@@ -5,7 +5,7 @@
   <section id="Main">
     <img src="/src/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
     <div class="img">
-      <img src="/src/assets/vue.svg" alt="logo" class="head-logo-image" />
+      <img src="/src/assets/1.png" alt="logo" class="head-logo-image" />
       <button>something</button>
     </div>
     <img src="/src/assets/สายรุ้ง3.png" alt="logo" class="home-rb" />
@@ -19,11 +19,7 @@
 button{
   margin-top: 3.5rem;
 }
-#Main{
-  position: relative;
-  height: 88vh;
-  width: 100%;
-}
+
 .home-rb{
   position: absolute;
   bottom: 0;
@@ -37,8 +33,8 @@ button{
   width: 100%;
 }
 .head-logo-image{
-  height: 280px;
-  width: 280px;
+  height: 380px;
+  width: 580px;
   margin: auto;
   margin-top: 2rem;
 }

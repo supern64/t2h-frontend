@@ -18,7 +18,7 @@ getMe().then((res) => {
 
 onMounted(() => {
   watch(() => route.path, (newPath) => {
-    isChatPage.value = newPath.includes('/chat');
+    isChatPage.value = newPath.includes('/chat') || newPath.includes('/emergency') || newPath.includes('/garph') || newPath.includes('/test');
   });
 });
 </script>
