@@ -72,6 +72,7 @@
     color: black;
     font-size: 1.2rem;
     font-weight: 700;
+    max-height: 82vh;
   }
   header{
     display: flex;
@@ -103,7 +104,12 @@
     border-top-right-radius: 3rem;
     padding-top: 0.3rem;
     animation: slideupAndFade 1s ease-out forwards;
+    visibility: hidden; /* Initially hidden */
   }
+
+  .chat:not(.animated) {
+  visibility: visible;
+}
   .profile{
     border-radius: 100%;
     width: 40px;
@@ -174,11 +180,11 @@
   @keyframes slideupAndFade {
   from {
     opacity: 0;
-    transform: translatey(50px);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
-    transform: translatey(0);
+    transform: translateX(0);
   }
 }
 </style>

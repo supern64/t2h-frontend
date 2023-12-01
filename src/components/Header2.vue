@@ -76,6 +76,7 @@ const logout = () => {
     margin-bottom: 1.5rem;
     border-radius: 5px;
     width: 100%;
+    animation: slideleftAndFade 1s ease-out forwards;
 }
 #header-nav {
     width: 100%;
@@ -154,7 +155,16 @@ const logout = () => {
   top: 0.5rem;
   display: block;
 }
-
+@keyframes slideleftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
 
 
 
