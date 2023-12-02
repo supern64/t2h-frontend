@@ -12,6 +12,10 @@
     <img src="/assets/5.png" alt="logo" class="home-rb" />
     <img src="/assets/cloud1.png" alt="logo" class="cloud1" />
     <img src="/assets/cloud2.png" alt="logo" class="cloud2" />
+    <img src="/assets/star1.png" alt="logo" class="star1" />
+    <img src="/assets/star1.png" alt="logo" class="star1-1" />
+    <img src="/assets/star2.png" alt="logo" class="star2" />
+    <img src="/assets/star2.png" alt="logo" class="star2-1" />
   </section>
 </template>
 
@@ -33,11 +37,39 @@ button{
 }
 .p{
   margin-top: 25.5rem;
-  animation: slideupAndFade 1s ease-out forwards;
+  animation: slideupAndFade 1.4s ease-out forwards;
 }
 .p2{
   margin-top: -1rem;
-  animation: slideupAndFade 1s ease-out forwards;
+  animation: slideupAndFade 1.4s ease-out forwards;
+}
+.star1{
+  position: absolute;
+  top: 25rem;
+  left: 8rem;
+  width: 11rem;
+  animation: slideupAndFadeRo 1s ease-out forwards;
+}
+.star1-1{
+  position: absolute;
+  top: 11rem;
+  left: 22rem;
+  width: 6rem;
+  animation: slideupAndFadeRo15 1s ease-out forwards;
+}
+.star2{
+  position: absolute;
+  top: 13rem;
+  right: 8rem;
+  width: 11rem;
+  animation: slideupAndFadeRoleft 1.2s ease-out forwards;
+}
+.star2-1{
+  position: absolute;
+  top: 37rem;
+  right: 32rem;
+  width: 7rem;
+  animation: slideupAndFadeRoleft15 1.2s ease-out forwards;
 }
 .cloud2{
   position: absolute;
@@ -45,7 +77,7 @@ button{
   right: -13rem;
   height: 8rem;
   width: 32rem;
-  animation: sliderightAndFadenoRo 1s ease-out forwards;
+  animation: sliderightAndFadenoRo 1.2s ease-out forwards;
 }
 #Main{
   margin-top: -5.5rem;
@@ -86,7 +118,7 @@ section{
   width: 680px;
   top: 17vh;
   right: 25vw;
-  animation: slideupAndFade 1s ease-out forwards;
+  animation: slideupAndFade 1.5s ease-out forwards;
 }
 .rainbow-image{
   position: absolute;
@@ -148,6 +180,47 @@ section{
   to {
     opacity: 1;
     transform: translatey(0);
+  }
+}
+
+  @keyframes slideupAndFadeRo {
+  from {
+    opacity: 0;
+    transform: translatey(50px) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0) rotate(25deg);
+  }
+}
+  @keyframes slideupAndFadeRo15 {
+  from {
+    opacity: 0;
+    transform: translatey(50px) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0) rotate(15deg);
+  }
+}
+@keyframes slideupAndFadeRoleft {
+  from {
+    opacity: 0;
+    transform: translatey(50px) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0) rotate(-25deg);
+  }
+}
+@keyframes slideupAndFadeRoleft15 {
+  from {
+    opacity: 0;
+    transform: translatey(50px) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0) rotate(-10deg);
   }
 }
 </style>
