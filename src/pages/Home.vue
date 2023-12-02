@@ -6,6 +6,8 @@
     <img src="/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
     <div class="img">
       <img src="/assets/1.png" alt="logo" class="head-logo-image" />
+      <p class="p">ให้คำปรึกษาปัญหาคาใจ คลายปัญหา ส่งเสริมสุขภาพจิตที่แข็งแรง</p> 
+      <p class="p2">จากนักจิตวิทยาและนักจิตออนไลน์ จากใจเราสู่ใจคุณ</p>
     </div>
     <img src="/assets/5.png" alt="logo" class="home-rb" />
     <img src="/assets/cloud1.png" alt="logo" class="cloud1" />
@@ -14,6 +16,7 @@
 </template>
 
 <style scoped>
+
 button{
   margin-top: 3.5rem;
   position: absolute;
@@ -28,6 +31,14 @@ button{
   width: 25rem;
   animation: slideleftAndFadenoRo 1s ease-out forwards;
 }
+.p{
+  margin-top: 25.5rem;
+  animation: slideupAndFade 1s ease-out forwards;
+}
+.p2{
+  margin-top: -1rem;
+  animation: slideupAndFade 1s ease-out forwards;
+}
 .cloud2{
   position: absolute;
   top: 33rem;
@@ -41,8 +52,10 @@ button{
   width: 100vw;
   height: 100vh;
   z-index: -1;
+  margin-bottom: -2rem;
 }
 section{
+  overflow: hidden;
   background-color: #242424;
   z-index: -1;
   width: 100vw;
@@ -52,11 +65,12 @@ section{
 
 .home-rb{
   position: absolute;
-  bottom: -5rem;
+  bottom: 25rem;
   left: 6rem;
   z-index: 0;
   height: 380px;
   width: 750px;
+  margin-bottom: -30rem;
   animation: slideleftAndFade 1s ease-out forwards;
 }
 .img{
