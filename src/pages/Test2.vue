@@ -376,9 +376,11 @@ section{
   position: relative;
   z-index: 0;
   height: 110vh;
-  background-color: aliceblue;
   color: black;
   font-size: 18px;
+}
+.lebel-container{
+  margin-top: 1rem;
 }
 .text-in{
   height: 2.5rem;
@@ -389,30 +391,7 @@ section{
   border-bottom-left-radius:3rem;
   font-size: 18px;
 }
-.bg-image{
-  width: 100vw;
-  height: 100%;
-  top: -87px;
-    left: -30px;
-  z-index: -1;
-  position: absolute;
-}
-.bg-image2{
-  width: 100vw;
-  height: 100%;
-  top: 710px;
-    left: -30px;
-  z-index: -2;
-  position: absolute;
-}
-.bg-image3{
-  width: 100vw;
-  height: 100%;
-  top: 900px;
-    left: -30px;
-  z-index: -2;
-  position: absolute;
-}
+
 .Question-1{
   margin-top: 2rem;
 }
@@ -436,15 +415,7 @@ label{
     margin-top: 0rem;
     border-radius: 3rem;
     padding: 2rem;
-}
-body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  max-width: 100vw;
-  overflow-x: hidden;
-  margin-top: -12px;
-  min-height: 100vh;
+    margin-bottom: 2rem; 
 }
 </style>
 

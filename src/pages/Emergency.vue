@@ -4,7 +4,7 @@
 <template>
   <section id="Main">
     <div class="img">
-      <img src="/assets/phone.png" alt="logo" class="head-logo-image" />
+      <img src="/assets/accept-call-icon.png" alt="logo" class="head-logo-image" />
       <h1>1323</h1>
     </div>
   </section>
@@ -31,14 +31,17 @@ button{
 }
 .img{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center; 
   width: 100%;
+  height: 100%;
+}
+h1{
+  font-size: 300px;
 }
 .head-logo-image{
-  height: 380px;
-  width: 380px;
+  height: 300px;
+  width: 300px;
   top: 4vh;
   right: 22.5vw;
   animation: slideupAndFade 1s ease-out forwards;
@@ -54,6 +57,9 @@ button{
   margin-right: 10px; 
   animation: slideAndFade 1s ease-out forwards;
   pointer-events: none;
+}
+:root {
+  background-color: #242424;
 }
 @keyframes slideAndFade {
   from {
