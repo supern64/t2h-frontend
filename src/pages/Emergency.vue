@@ -4,7 +4,7 @@
 <template>
   <section id="Main">
     <div class="img">
-      <img src="/src/assets/phone.png" alt="logo" class="head-logo-image" />
+      <img src="/assets/phone.png" alt="logo" class="head-logo-image" />
       <h1>1323</h1>
     </div>
   </section>

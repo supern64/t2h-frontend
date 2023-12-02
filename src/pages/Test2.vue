@@ -6,9 +6,6 @@ const handleChoiceChange = (questionNumber) => (event) => {
 
 <template>
   <section>
-    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
-    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image2" />
-    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image3" />
     <div class="container">
       
     <!-- Question 1 -->
@@ -448,5 +445,6 @@ body {
   overflow-x: hidden;
   margin-top: -12px;
   min-height: 100vh;
+  background-image: url("./assets/ฉาก1.png");
 }
 </style>

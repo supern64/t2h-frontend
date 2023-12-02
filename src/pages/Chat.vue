@@ -102,19 +102,19 @@ onMounted(() => {
       <header>
         <div class="in-head">
           <button>แชท</button>
-          <img src="/src/assets/black.png" alt="profile" class="profile" />
+          <img src="/assets/black.png" alt="profile" class="profile" />
           <p class="ph">{{ currentRoom ? getRoomName(currentRoom) : "ชื่อผู้ใช้"}}</p>
           <button style="cursor: pointer;" @click="goToProfile()">ดูหน้าผู้ใช้</button>
         </div>
         <div class="in-head">
-          <img src="/src/assets/phone.png" alt="profile" class="icon" />
-          <img src="/src/assets/vdcall.png" alt="profile" class="icon" />
+          <img src="/assets/phone.png" alt="profile" class="icon" />
+          <img src="/assets/vdcall.png" alt="profile" class="icon" />
         </div>
       </header>
       <div class="container">
       <div class="side-freind-bar">
         <article v-for="room of roomList" @click="switchRoom(room.id)" :key="room.id" :class="{ 'current-room' : room.id === currentRoom.id }">
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
+            <img src="/assets/black.png" alt="profile" class="in-profile" />
             <p class="ph">{{ getRoomName(room) }}</p>
         </article>
       </div>
@@ -123,15 +123,15 @@ onMounted(() => {
           <p v-for="message in messages" :key="message.id" class="message">{{ message.user.nickname }}: {{ message.text }}</p>
         </div>
         <footer>
-          <img src="/src/assets/plus.png" alt="profile" class="icon" />
-          <img src="/src/assets/im.png" alt="profile" class="icon" />
+          <img src="/assets/plus.png" alt="profile" class="icon" />
+          <img src="/assets/im.png" alt="profile" class="icon" />
           <input type="text" v-model="message" @keydown="checkInput" class="text-in" id="text-in">
-          <img src="/src/assets/send.png" @click="sendMessage" alt="profile" class="icon" />
+          <img src="/assets/send.png" @click="sendMessage" alt="profile" class="icon" />
         </footer>
         </div>
       </div>
     </div>
-        <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
+        <img src="/assets/ฉาก1.png" alt="logo" class="bg-image" />
   </section>
 </template>
 
