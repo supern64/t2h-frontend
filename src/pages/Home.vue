@@ -38,7 +38,8 @@ section{
   bottom: -5rem;
   left: 6rem;
   z-index: 0;
-  width: 650px;
+  height: 380px;
+  width: 750px;
   animation: slideleftAndFade 1s ease-out forwards;
 }
 .img{
@@ -52,14 +53,14 @@ section{
   position: absolute;
   height: 280px;
   width: 680px;
-  top: 20vh;
+  top: 17vh;
   right: 25vw;
   animation: slideupAndFade 1s ease-out forwards;
 }
 .rainbow-image{
   position: absolute;
-  right: 0;
-  top: 0;
+  right: -60px;
+  top: -55px;
   z-index: -1;
   width: 400px;
   opacity: 0; 
