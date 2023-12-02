@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue';
 import Card from 'primevue/card';
+import Button from 'primevue/button';
 import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '../stores/user';
 import * as User from '../api/user';
@@ -25,20 +26,16 @@ let userBirthday = computed(() => {
 });
 
 onMounted(() => {
-    if (!userStore.isLoggedIn && userStore.hasFetched) {
-        router.push('/login');
+    if (isSelf.value) {
+        user.value = userStore.user;
+        doneFetch.value = true;
     } else {
-        if (isSelf.value) {
-            user.value = userStore.user;
+        User.getUser(route.params.id).then((res) => {
+            if (res.status === "SUCCESS") {
+                user.value = res.data.user;
+            }
             doneFetch.value = true;
-        } else {
-            User.getUser(route.params.id).then((res) => {
-                if (res.status === "SUCCESS") {
-                    user.value = res.data.user;
-                }
-                doneFetch.value = true;
-            });
-        }
+        });
     }
 })
 </script>
@@ -46,20 +43,23 @@ onMounted(() => {
 <template>
     <Card v-if="user != null && doneFetch">
         <template #title>
-            {{ (user.firstName || "") + (user.lastName ? " " + user.lastName : "") }}'s Profile
+            โปรไฟล์ของ {{ (user.firstName || "") + (user.lastName ? " " + user.lastName : "") }}
         </template>
         <template #content>
-            Nickname: {{ user.nickname || "N/A" }} <br />
-            Gender: {{ user.gender || "N/A" }} <br />
-            Birthday: {{ userBirthday }} <br />
+            ชื่อเล่น: {{ user.nickname || "N/A" }} <br />
+            เพศ: {{ user.gender || "N/A" }} <br />
+            วันเกิด: {{ userBirthday }} <br />
+        </template>
+        <template #footer v-if="userStore.isDoctor">
+            <Button label="ผลการประเมิน" class="p-button-success" @click="router.push(`/garph/${user.id}`)"/>
         </template>
     </Card>
     <Card v-else-if="doneFetch">
         <template #title>
-            Error
+            ผิดพลาด
         </template>
         <template #content>
-            User not found
+            ไม่พบผู้ใช้
         </template>
     </Card>
 </template>

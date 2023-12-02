@@ -71,8 +71,8 @@ onMounted(() => {
         if (!success) {
           toast.add({
             severity: 'error',
-            summary: 'Error',
-            detail: "Chat connection failed: " + error,
+            summary: 'ผิดพลาด',
+            detail: "เกิดความขัดข้องในการเชื่อมต่อแชท: " + error,
             life: 5000
           })
         } else {
@@ -104,7 +104,7 @@ onMounted(() => {
           <button>แชท</button>
           <img src="/assets/black.png" alt="profile" class="profile" />
           <p class="ph">{{ currentRoom ? getRoomName(currentRoom) : "ชื่อผู้ใช้"}}</p>
-          <button style="cursor: pointer;" @click="goToProfile()">ดูหน้าผู้ใช้</button>
+          <button style="cursor: pointer;" @click="goToProfile()">ดูโปรไฟล์ผู้ใช้</button>
         </div>
         <div class="in-head">
           <img src="/assets/phone.png" alt="profile" class="icon" />

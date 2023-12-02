@@ -36,18 +36,18 @@ const logout = () => {
       <div class="left-header">
         <router-link class="link" to="/">หน้าหลัก</router-link>
           <router-link class="link" to="/test">แบบทดสอบ</router-link>
-          <router-link class="link" to="/garph">ตารางสรุป</router-link>
+          <router-link class="link" to="/garph/me">ตารางสรุป</router-link>
           <router-link class="link" to="/chat">แชท</router-link>
           <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
         <div class="right-header">
           <div class="right-h" v-if="user.isLoggedIn">
             <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
-            <router-link class="link" @click="logout" to="/">Logout</router-link>
+            <router-link class="link" @click="logout" to="/">ออกจากระบบ</router-link>
           </div>
           <div class="right-h" v-else>
-            <router-link class="link" to="/login">Login</router-link>
-            <router-link class="link" to="/signup">Signup</router-link>
+            <router-link class="link" to="/login">ลงชื่อเข้าใช้</router-link>
+            <router-link class="link" to="/signup">สร้างบัญชี</router-link>
           </div>
         </div>
       </nav>

@@ -20,9 +20,9 @@ const gender = ref();
 const birthday = ref();
 
 const genders = ref([
-  {name: "Male", code: "M"},
-  {name: "Female", code: "F"},
-  {name: "Prefer not to say", code: "N/A"}
+  {name: "ชาย", code: "M"},
+  {name: "หญิง", code: "F"},
+  {name: "ไม่เปิดเผย", code: "N/A"}
 ])
 
 function getNonTimezoneDate(date) {
@@ -44,15 +44,15 @@ const createAccount = () => {
     if (res.status === "ERROR") {
       toast.add({
         severity: "error",
-        summary: "Error",
+        summary: "ผิดพลาด",
         detail: res.data.error,
         life: 5000
       });
     } else {
       toast.add({
         severity: "success",
-        summary: "Success",
-        detail: "Created account! Please login.",
+        summary: "สำเร็จ",
+        detail: "สร้างบัญชีสำเร็จ กรุณาเข้าสู่ระบบ",
         life: 3000
       });
       router.push("/login");
@@ -63,32 +63,32 @@ const createAccount = () => {
 
 <template>
   <div class="signup-form">
-    <span style="font-size: 1.5rem; font-weight: 700;">Sign Up</span>
+    <span style="font-size: 1.5rem; font-weight: 700;">สร้างบัญชี</span>
     <div class="input-group">
       <span class="p-input-icon-left">
         <i class="pi pi-envelope"></i>
-        <InputText v-model="email" placeholder="E-mail" />
+        <InputText v-model="email" placeholder="อีเมล" />
       </span>
-      <Password v-model="password" placeholder="Password" toggle-mask />
+      <Password v-model="password" placeholder="รหัสผ่าน" toggle-mask />
       <span class="p-input-icon-left">
         <i class="pi pi-user"></i>
-        <InputText v-model="name" placeholder="Name" />
+        <InputText v-model="name" placeholder="ชื่อ" />
       </span>
       <span>
-        <InputText v-model="surname" placeholder="Surname" />
+        <InputText v-model="surname" placeholder="นามสกุล" />
       </span>
       <span>
-        <InputText v-model="nickname" placeholder="Nickname" />
+        <InputText v-model="nickname" placeholder="ชื่อเล่น" />
       </span>
       <span>
-        <Dropdown v-model="gender" editable placeholder="Gender" :options="genders" option-label="name" option-value="code" />
+        <Dropdown v-model="gender" editable placeholder="เพศวิถี" :options="genders" option-label="name" option-value="code" />
       </span>
       <span>
-        <Calendar v-model="birthday" placeholder="Birthday" date-format="yy/mm/dd" />
+        <Calendar v-model="birthday" placeholder="วันเกิด" date-format="yy/mm/dd" />
       </span>
     </div>
       
-    <Button label="Create Account" @click="createAccount" />
+    <Button label="สร้างบัญชี" @click="createAccount" />
   </div>
 </template>
 
