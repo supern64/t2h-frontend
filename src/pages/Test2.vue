@@ -104,7 +104,9 @@ function handleSubmit() {
           <p class="r">มากที่สุด</p>
         </div>
       </header>
-      <div v-for="question in ratingQuestions" v-key="ratingQuestions.indexOf(question)" class="question">
+=======
+      
+      <div v-for="question in ratingQuestions" :key="ratingQuestions.indexOf(question)" class="question">
         <p>{{ ratingQuestions.indexOf(question) + 1 }}. {{ question }}</p>
         <div class="lebel-container">
           <label>
@@ -124,7 +126,7 @@ function handleSubmit() {
       </div>
 
       <div class="QA-container">
-        <div v-for="question in freeformQuestions" v-key="freeformQuestions.indexOf(question)">
+        <div v-for="question in freeformQuestions" :key="freeformQuestions.indexOf(question)">
           <p>{{ freeformQuestions.indexOf(question) + 16 }}. {{ question }}</p>
           <input type="text" class="text-in" @change="handleFreeformChange(freeformQuestions.indexOf(question), $event)">
         </div>

@@ -40,7 +40,7 @@ const logout = () => {
           <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
         <div class="middle-header">
-          <img src="/src/assets/2.png" alt="logo" class="logo-image" />
+          <img src="/assets/2.png" alt="logo" class="logo-image" />
         </div>
         <div class="right-header">
           <div v-if="user.isLoggedIn">
