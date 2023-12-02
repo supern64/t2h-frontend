@@ -128,9 +128,11 @@ section{
   position: relative;
   z-index: 0;
   height: 110vh;
-  background-color: aliceblue;
   color: black;
   font-size: 18px;
+}
+.lebel-container{
+  margin-top: 1rem;
 }
 .text-in{
   height: 2.5rem;
@@ -158,15 +160,7 @@ label{
     margin-top: 0rem;
     border-radius: 3rem;
     padding: 2rem;
-}
-body {
-  margin: 0;
-  display: flex;
-  min-width: 320px;
-  max-width: 100vw;
-  overflow-x: hidden;
-  margin-top: -12px;
-  min-height: 100vh;
+    margin-bottom: 2rem; 
 }
 button{
   font-weight: 700;

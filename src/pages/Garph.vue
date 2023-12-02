@@ -12,6 +12,7 @@
         <div class="dropdownQ-container">
           <div v-for="option in options" :key="option.value" class="dropdown">
             <div class="dropdown-trigger" @click="toggleDropdown(option)">
+              <img src="/public/assets/arrow.png" alt="logo" class="arrow" />
               {{ option.label }}
             </div>
             <div v-if="option.showDropdown" class="dropdown-content">
@@ -20,6 +21,23 @@
           </div>
         </div>
       </div>
+      <div class="score-information">
+        <div>
+        <p>51-60 คะแนน<br>                      
+            44-50 คะแนน<br>                     
+            43 คะแนนหรือน้อยกว่า</p>
+        </div>
+        <div>
+          <p>
+            หมายถึง มีสุขภาพจิตมากกว่าคนทั่วไป (Good) <br>
+            หมายถึง มีสุขภาพจิตเท่ากับคนทั่วไป (Fair) <br>
+            หมายถึง มีสุขภาพจิตต่ำกว่าคนทั่วไป (Poor)
+          </p>
+        </div>
+      </div>
+    </div>
+    <div>
+
     </div>
   </div>
 </section>
@@ -30,7 +48,6 @@ section{
   position: relative;
   z-index: 0;
   height: 83.5vh;
-  background-color: aliceblue;
   color: black;
   font-size: 18px;
 }
@@ -44,22 +61,20 @@ section{
 }
 .container{
   z-index: 1;
-  width: 105%;
-  height: 105.6%;
+  width: 100%;
+  height: 100%;
     background-color: #F6EBD9;
-    margin-left: -2rem;
-    margin-right: -2rem;
-    margin-top: 0rem;
-    border-top-left-radius: 3rem; 
-    border-top-right-radius: 3rem;
+    border-radius: 3rem; 
     padding: 2rem;
 }
 .dropdownQ-container {
   height: 50vh;
   width: 50%;
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
-  border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
-  padding: 10px; /* Optional: Add padding to the container */
+  overflow-y: auto; 
+  background-color: white;/* Enable vertical scrolling if content exceeds container height */
+  border: 2px solid black; /* Optional: Add a border for visual clarity */
+  padding: 10px;
+  border-radius: 2rem; /* Optional: Add padding to the container */
 }
 
 .dropdown {
@@ -67,17 +82,39 @@ section{
 }
 
 .dropdown-trigger {
+  position: relative;
   cursor: pointer;
   padding: 5px;
-  background-color: #e0e0e0;
-  border: 1px solid #ccc;
+  background-color: #F6EBD9;
+  border: 2px solid black;
+  border-radius: 2rem;
+  padding: 0 1rem;
 }
 
 .dropdown-content {
   display: block;
   padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
+  background-color: #F6EBD9;
+  border: 2px solid black;
+  border-radius: 2rem;
+}
+.arrow{
+  position: absolute;
+  top: 4px;
+  right: 0.5rem;
+  width: 20px;
+  transform:  rotate(90deg);
+}
+.score-information{
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+  margin-top: 1rem;
+  width: 50%;
+  background-color: white;/* Enable vertical scrolling if content exceeds container height */
+  border: 2px solid black; /* Optional: Add a border for visual clarity */
+  padding: 1rem 2rem;
+  border-radius: 2rem; 
 }
 
 </style>
@@ -99,6 +136,7 @@ export default {
         { value: 'Question 3', label: 'Question 3', content: 'Content for Option 3', showDropdown: false },
         { value: 'Question 4', label: 'Question 4', content: 'Content for Option 4', showDropdown: false },
         { value: 'Question 5', label: 'Question 5', content: 'Content for Option 5', showDropdown: false },
+        { value: 'Question 6', label: 'Question 6', content: 'Content for Option 6', showDropdown: false },
       ]
     };
   },
