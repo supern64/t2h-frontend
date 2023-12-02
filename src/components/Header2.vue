@@ -33,13 +33,11 @@ const logout = () => {
 
     <Toast />
     <nav id="header-nav">
-      <div class="left-header">
+      <div class="left-header" :class="{shorter:!user.isLoggedIn}">
         <router-link class="link" to="/">หน้าหลัก</router-link>
-        <div v-if="user.isLoggedIn">
-          <router-link class="link" to="/test">แบบทดสอบ</router-link>
-          <router-link class="link" to="/garph/me">ตารางสรุป</router-link>
-          <router-link class="link" to="/chat">แชท</router-link>
-        </div>
+        <router-link class="link" v-if="user.isLoggedIn" to="/test">แบบทดสอบ</router-link>
+        <router-link class="link" v-if="user.isLoggedIn" to="/garph/me">ตารางสรุป</router-link>
+        <router-link class="link" v-if="user.isLoggedIn" to="/chat">แชท</router-link>
         <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
         <div class="right-header">
@@ -103,6 +101,9 @@ const logout = () => {
     flex-grow: 1; 
     align-content: flex-start;
     justify-content: space-between;
+}
+.left-header.shorter {
+  flex-grow: 0;
 }
 .right-header {
     align-content: flex-end;
