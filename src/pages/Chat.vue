@@ -8,6 +8,7 @@ import * as Chat from '../api/chat';
 
 const userStore = useUserStore();
 const chatStore = useChatStore();
+const router = useRouter();
 const toast = useToast();
 const roomList = ref([]);
 const messages = ref([]);
@@ -43,9 +44,13 @@ function switchRoom(roomId) {
   });
 }
 
+function goToProfile() {
+  router.push(`/user/${currentRoom.value.users.find((user) => user.id !== userStore.user.id).id}`);
+}
+
 onMounted(() => {
   if (!userStore.isLoggedIn && userStore.hasFetched) {
-    useRouter().push('/login');
+    router.push('/login');
   } else {
     Chat.getRoomList().then((rooms) => {
       roomList.value = rooms.data.chats;
@@ -99,6 +104,7 @@ onMounted(() => {
           <button>แชท</button>
           <img src="/src/assets/black.png" alt="profile" class="profile" />
           <p class="ph">{{ currentRoom ? getRoomName(currentRoom) : "ชื่อผู้ใช้"}}</p>
+          <button style="cursor: pointer;" @click="goToProfile()">ดูหน้าผู้ใช้</button>
         </div>
         <div class="in-head">
           <img src="/src/assets/phone.png" alt="profile" class="icon" />
@@ -147,6 +153,7 @@ onMounted(() => {
   button{
     font-weight: 700;
     background-color: white;
+    color: black;
     width: 11rem;
     height: 2.5rem;
     text-align: center;
