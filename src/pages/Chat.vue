@@ -69,7 +69,6 @@
 </template>
 
 <style scoped>
-
   section{
     height: 82vh;
     color: black;
