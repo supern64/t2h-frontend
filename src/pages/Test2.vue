@@ -92,7 +92,18 @@ function handleSubmit() {
 <template>
   <section>
     <div class="container">
-      
+      <div class="allquestion">
+      <header>
+        <div class="left">
+          <p>คำถาม</p>
+        </div>
+        <div class="right">
+          <p class="r">ไม่เลย</p>
+          <p class="r">เล็กน้อย</p>
+          <p class="r">มาก</p>
+          <p class="r">มากที่สุด</p>
+        </div>
+      </header>
       <div v-for="question in ratingQuestions" v-key="ratingQuestions.indexOf(question)" class="question">
         <p>{{ ratingQuestions.indexOf(question) + 1 }}. {{ question }}</p>
         <div class="lebel-container">
@@ -110,6 +121,7 @@ function handleSubmit() {
           </label>
         </div>
       </div>
+      </div>
 
       <div class="QA-container">
         <div v-for="question in freeformQuestions" v-key="freeformQuestions.indexOf(question)">
@@ -124,6 +136,13 @@ function handleSubmit() {
 </template>
 
 <style scoped>
+header{
+  display: flex;
+  justify-content: space-between;
+}
+.right{
+  display: flex;
+}
 section{
   position: relative;
   z-index: 0;
@@ -137,15 +156,18 @@ section{
 .text-in{
   height: 2.5rem;
   width: 100%;
-  border-top-left-radius: 3rem;
-  border-top-right-radius:3rem;
-  border-bottom-right-radius:3rem;
-  border-bottom-left-radius:3rem;
+  border-radius:3rem;
   font-size: 18px;
+}
+.allquestion{
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius:3rem;
 }
 .question{
   display: flex;
   justify-content: space-between;
+  
 }
 label{
   margin-top: 1.1rem;

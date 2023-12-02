@@ -12,7 +12,7 @@
         <div class="dropdownQ-container">
           <div v-for="option in options" :key="option.value" class="dropdown">
             <div class="dropdown-trigger" @click="toggleDropdown(option)">
-              <img src="/public/assets/arrow.png" alt="logo" class="arrow" />
+              <img src="/assets/arrow.png" alt="logo" class="arrow" />
               {{ option.label }}
             </div>
             <div v-if="option.showDropdown" class="dropdown-content">
