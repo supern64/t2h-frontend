@@ -14,8 +14,8 @@ const logout = () => {
     if (res.status === "SUCCESS") {
       toast.add({
         severity: "success",
-        summary: "Success",
-        detail: "Logout successful",
+        summary: "สำเร็จ",
+        detail: "ออกจากระบบสำเร็จ",
         life: 3000
       });
       user.logout();
