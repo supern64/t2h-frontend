@@ -38,6 +38,7 @@ button{
 }
 h1{
   font-size: 300px;
+  animation: slideupAndFade 1s ease-out forwards;
 }
 .head-logo-image{
   height: 300px;

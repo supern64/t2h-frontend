@@ -5,7 +5,7 @@
   <section>
 
   <div class="container">
-    <div>
+    <div class="left-container">
       <div class="dropdown-container">
         <div class="name-dropdown">
         </div>
@@ -36,8 +36,19 @@
         </div>
       </div>
     </div>
-    <div>
-
+    <div class="right-container">
+      <div class="above-garph">
+      <div class="garph">
+        <img src="/assets/pie-chart.png" alt="logo" class="chart" /> 
+      </div>
+      <p> กราฟสรุปความรู้สึก(รูปภาพเพื่อการโฆษณา)</p>
+      </div>
+      <div class="above-garph">
+      <div class="garph">
+        <img src="/assets/bar-chart.png" alt="logo" class="chart" />
+      </div>
+      <p> กราฟสรุปคะแนน(รูปภาพเพื่อการโฆษณา)</p>
+      </div>
     </div>
   </div>
 </section>
@@ -51,6 +62,9 @@ section{
   color: black;
   font-size: 18px;
 }
+.left-container{
+  width: 60%;
+}
 .bg-image{
   width: 100vw;
   height: 80vh;
@@ -59,17 +73,42 @@ section{
   z-index: -1;
   position: absolute;
 }
+.chart{
+  margin-top: 1rem;
+  width: 15rem;
+  height: 12rem;
+}
+.right-container{
+  width: 38%;  
+}
+.above-garph{
+  height: 48%;
+  background-color: white;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  border-radius: 3rem; 
+  border: 2px solid black;
+  text-align: center;
+}
+.garph{
+  display: flex;
+  justify-content: center;
+
+}
 .container{
+  display: flex;
   z-index: 1;
   width: 100%;
   height: 100%;
     background-color: #F6EBD9;
     border-radius: 3rem; 
     padding: 2rem;
+  animation: slideleftAndFade 1s ease-out forwards;
 }
 .dropdownQ-container {
   height: 50vh;
-  width: 50%;
+  width: 100%;
   overflow-y: auto; 
   background-color: white;/* Enable vertical scrolling if content exceeds container height */
   border: 2px solid black; /* Optional: Add a border for visual clarity */
@@ -110,13 +149,22 @@ section{
   justify-content: space-between;
   height: 20vh;
   margin-top: 1rem;
-  width: 50%;
+  width: 100%;
   background-color: white;/* Enable vertical scrolling if content exceeds container height */
   border: 2px solid black; /* Optional: Add a border for visual clarity */
   padding: 1rem 2rem;
   border-radius: 2rem; 
 }
-
+@keyframes slideleftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 </style>
 
 <style>

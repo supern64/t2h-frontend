@@ -19,15 +19,29 @@
 button{
   margin-top: 3.5rem;
   position: absolute;
-  top: 51vh;
-  right: 44.8vw;
+  top: 57vh;
+  right: 48vw;
+  z-index: 1;
+}
+#Main{
+  margin-top: -5.5rem;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+section{
+  background-color: #242424;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -2rem;
 }
 
 .home-rb{
   position: absolute;
   bottom: -5rem;
   left: 6rem;
-  z-index: -1;
+  z-index: 0;
   width: 650px;
   animation: slideleftAndFade 1s ease-out forwards;
 }
@@ -42,14 +56,14 @@ button{
   position: absolute;
   height: 280px;
   width: 680px;
-  top: 4vh;
-  right: 22.5vw;
+  top: 20vh;
+  right: 25vw;
   animation: slideupAndFade 1s ease-out forwards;
 }
 .rainbow-image{
   position: absolute;
-  right: -90px;
-  top: -145px;
+  right: 0;
+  top: 0;
   z-index: -1;
   width: 400px;
   opacity: 0; 

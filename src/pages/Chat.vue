@@ -172,8 +172,8 @@ onMounted(() => {
     border-top-left-radius: 3rem; 
     border-top-right-radius: 3rem;
     padding-top: 0.3rem;
-    animation: slideupAndFade 1s ease-out forwards;
-    visibility: hidden; /* Initially hidden */
+    animation: slideleftAndFade 1s ease-out forwards;
+    visibility: hidden; 
   }
 
   .chat:not(.animated) {
@@ -200,8 +200,8 @@ onMounted(() => {
     margin-top: 1.6rem;
   }
   .side-freind-bar{
-    max-height: 78.5vh; /* Set the maximum height for the side-friend-bar */
-    overflow-y: auto;  /* Enable vertical scroll */
+    max-height: 78.5vh; 
+    overflow-y: auto;  
     overflow-x: hidden;
     width: 16%;
     border-right: 2px solid black;
@@ -226,6 +226,8 @@ onMounted(() => {
   footer{
     display: flex;
     border-top: 2px solid black;
+    background-color: white;
+    height: 4.4rem;
     width: 84vw;
     align-items: center;
   }
@@ -239,7 +241,7 @@ onMounted(() => {
   .text-in{
     width: 85%;
     height: 3.9rem;
-    background-color: #C4C2FF;
+    background-color: white;
     border: none;
     outline: none;
     font-size: 22px;
@@ -250,7 +252,7 @@ onMounted(() => {
   .in-head{
     display: flex;
   }
-  @keyframes slideupAndFade {
+  @keyframes slideleftAndFade {
   from {
     opacity: 0;
     transform: translateX(50px);

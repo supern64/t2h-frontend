@@ -104,7 +104,7 @@ function handleSubmit() {
           <p class="r">มากที่สุด</p>
         </div>
       </header>
-=======
+
       
       <div v-for="question in ratingQuestions" :key="ratingQuestions.indexOf(question)" class="question">
         <p>{{ ratingQuestions.indexOf(question) + 1 }}. {{ question }}</p>
@@ -141,6 +141,7 @@ function handleSubmit() {
 header{
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid black;
 }
 .right{
   display: flex;
@@ -154,6 +155,7 @@ section{
 }
 .lebel-container{
   margin-top: 1rem;
+  margin-right: 1.5rem;
 }
 .text-in{
   height: 2.5rem;
@@ -165,6 +167,7 @@ section{
   background-color: white;
   padding: 1rem 2rem;
   border-radius:3rem;
+  border: 2px solid black;
 }
 .question{
   display: flex;
@@ -179,12 +182,13 @@ label{
   z-index: 1;
   width: 100%;
   height: auto;
-    background-color: #F6EBD9;
-    margin-left: 0rem;
-    margin-top: 0rem;
-    border-radius: 3rem;
-    padding: 2rem;
-    margin-bottom: 2rem; 
+  background-color: #F6EBD9;
+  margin-left: 0rem;
+  margin-top: 0rem;
+  border-radius: 3rem;
+  padding: 2rem;
+  margin-bottom: 2rem; 
+  animation: slideleftAndFade 1s ease-out forwards;
 }
 button{
   font-weight: 700;
@@ -200,6 +204,20 @@ button{
   font-size: 1.2rem;
   cursor: pointer;
 }
+.r{
+  margin-left: 2.4rem;
+}
+@keyframes slideleftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 </style>
 
 <style>
