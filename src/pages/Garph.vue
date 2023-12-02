@@ -2,21 +2,53 @@
 </script>
 
 <template>
+  <section>
+  <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
   <div class="container">
+  <div class="dropdown-container">
     <div v-for="option in options" :key="option.value" class="dropdown">
       <div class="dropdown-trigger" @click="toggleDropdown(option)">
         {{ option.label }}
       </div>
       <div v-if="option.showDropdown" class="dropdown-content">
-        <!-- Content to display when the dropdown is open -->
         {{ option.content }}
       </div>
     </div>
   </div>
+  </div>
+</section>
 </template>
 
 <style scoped>
-.container {
+section{
+  position: relative;
+  z-index: 0;
+  height: 83.5vh;
+  background-color: aliceblue;
+  color: black;
+  font-size: 18px;
+}
+.bg-image{
+  width: 100vw;
+  height: 80vh;
+  top: -87px;
+    left: -30px;
+  z-index: -1;
+  position: absolute;
+}
+.container{
+  z-index: 1;
+  width: 105%;
+  height: 105.6%;
+    background-color: #F6EBD9;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: 0rem;
+    border-top-left-radius: 3rem; 
+    border-top-right-radius: 3rem;
+    padding: 2rem;
+}
+.dropdown-container {
   height: 50vh;
   overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
   border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
@@ -47,9 +79,11 @@ export default {
   data() {
     return {
       options: [
-        { value: 'option1', label: 'Option 1', content: 'Content for Option 1', showDropdown: false },
-        { value: 'option2', label: 'Option 2', content: 'Content for Option 2', showDropdown: false },
-        // Add more options as needed
+        { value: 'Question 1', label: 'Question 1', content: 'Content for Option 1', showDropdown: false },
+        { value: 'Question 2', label: 'Question 2', content: 'Content for Option 2', showDropdown: false },
+        { value: 'Question 3', label: 'Question 3', content: 'Content for Option 3', showDropdown: false },
+        { value: 'Question 4', label: 'Question 4', content: 'Content for Option 4', showDropdown: false },
+        { value: 'Question 5', label: 'Question 5', content: 'Content for Option 5', showDropdown: false },
       ]
     };
   },

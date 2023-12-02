@@ -377,7 +377,7 @@ label{
 }
 .container{
   z-index: 1;
-  width: 104.5%;
+  width: 105%;
   height: auto;
     background-color: #F6EBD9;
     margin-left: -2rem;
