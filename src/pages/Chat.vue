@@ -131,7 +131,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-        <img src="/assets/ฉาก1.png" alt="logo" class="bg-image" />
   </section>
 </template>
 
@@ -261,19 +260,18 @@ onMounted(() => {
     transform: translateX(0);
   }
 }
-.bg-image{
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-    left: 3px;
-  z-index: -1;
-  position: absolute;
-}
 
 .chatin-out {
   padding: 1rem;
   overflow-y: auto;
   max-height: 69vh;
   overflow-x: hidden;
+}
+</style>
+
+<style>
+:root {
+  background-image: url('/assets/ฉาก1.png');
+  background-repeat: repeat-y;
 }
 </style>

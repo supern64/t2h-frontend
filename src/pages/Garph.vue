@@ -3,7 +3,7 @@
 
 <template>
   <section>
-  <img src="/assets/ฉาก1.png" alt="logo" class="bg-image" />
+
   <div class="container">
     <div>
       <div class="dropdown-container">
@@ -78,6 +78,14 @@ section{
   padding: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
+}
+
+</style>
+
+<style>
+:root {
+  background-image: url('/assets/ฉาก1.png');
+  background-repeat: repeat-y;
 }
 </style>
 

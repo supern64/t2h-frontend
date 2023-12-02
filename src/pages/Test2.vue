@@ -445,6 +445,12 @@ body {
   overflow-x: hidden;
   margin-top: -12px;
   min-height: 100vh;
-  background-image: url("./assets/ฉาก1.png");
+}
+</style>
+
+<style>
+:root {
+  background-image: url('/assets/ฉาก1.png');
+  background-repeat: repeat-y;
 }
 </style>
