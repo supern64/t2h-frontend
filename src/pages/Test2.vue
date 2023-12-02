@@ -9,7 +9,9 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
     <div class="container">
       <div class="name-container">
-        <input type="text" placeholder="Name" class="text-in" id="text-in">
+        <input type="text" placeholder="Name" class="text-in" id="name">
+        <input type="text" placeholder="Nickname" class="text-in" id="nickname">
+         <input type="text" placeholder="Date/Month/Year" class="text-in" id="date/year">
       </div>
     <!-- Question 1 -->
     <div class="question">
