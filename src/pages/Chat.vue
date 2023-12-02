@@ -107,14 +107,14 @@ onMounted(() => {
       </header>
       <div class="container">
       <div class="side-freind-bar">
-        <article v-for="room of roomList" @click="switchRoom(room.id)" :class="{ 'current-room' : room.id === currentRoom.id }">
+        <article v-for="room of roomList" @click="switchRoom(room.id)" :key="room.id" :class="{ 'current-room' : room.id === currentRoom.id }">
             <img src="/src/assets/black.png" alt="profile" class="in-profile" />
             <p class="ph">{{ getRoomName(room) }}</p>
         </article>
       </div>
       <div>
         <div class="chatin-out" ref="chatbox">
-          <p v-for="message in messages" class="message">{{ message.user.nickname }}: {{ message.text }}</p>
+          <p v-for="message in messages" :key="message.id" class="message">{{ message.user.nickname }}: {{ message.text }}</p>
         </div>
         <footer>
           <img src="/src/assets/plus.png" alt="profile" class="icon" />
