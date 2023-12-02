@@ -39,12 +39,6 @@ const logout = () => {
           <router-link class="link" to="/chat">แชท</router-link>
           <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
-      <div class="right-header">
-        <div v-if="user.isLoggedIn">
-          <router-link class="link" to="/user/me">{{ user.user.nickname }}</router-link>
-          <router-link class="link" @click="logout" to="/">Logout</router-link>
-        </div>
-      </div>
         <div class="middle-header">
           <img src="/src/assets/2.png" alt="logo" class="logo-image" />
         </div>

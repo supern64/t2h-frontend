@@ -1,4 +1,93 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { useToast } from 'primevue/usetoast';
+import { useUserStore } from '../stores/user';
+import { useChatStore } from '../stores/chat';
+import * as Chat from '../api/chat';
+
+const userStore = useUserStore();
+const chatStore = useChatStore();
+const toast = useToast();
+const roomList = ref([]);
+const messages = ref([]);
+const currentRoom = ref(null);
+const message = ref('');
+const chatbox = ref(null);
+
+function checkInput(e) {
+  if (e.key === 'Enter') {
+    sendMessage();
+  }
+}
+
+function sendMessage() {
+  if (message.value.trim() !== '') {
+    chatStore.session.sendMessage(message.value, currentRoom.value.id);
+    message.value = '';
+  }
+}
+
+function getRoomName(room) {
+  return room.users.filter((user) => user.id !== userStore.user.id).map((user) => user.nickname).join(', ');
+}
+
+function switchRoom(roomId) {
+  messages.value = [];
+  currentRoom.value = roomList.value.find((room) => room.id === roomId);
+  Chat.getRoomMessages(currentRoom.value.id).then((res) => {
+    messages.value = res.data.messages;
+    setTimeout(() => {
+      chatbox.value.scrollTop = chatbox.value.scrollHeight;
+    }, 100);
+  });
+}
+
+onMounted(() => {
+  if (!userStore.isLoggedIn && userStore.hasFetched) {
+    useRouter().push('/login');
+  } else {
+    Chat.getRoomList().then((rooms) => {
+      roomList.value = rooms.data.chats;
+      currentRoom.value = rooms.data.chats[0];
+      Chat.getRoomMessages(currentRoom.value.id).then((res) => {
+        messages.value = res.data.messages;
+        setTimeout(() => {
+          chatbox.value.scrollTop = chatbox.value.scrollHeight;
+        }, 100);
+      });
+    });
+    if (!chatStore.session) {
+      const session = new Chat.ChatSession();
+      chatStore.session = session;
+    }
+    if (!chatStore.session.isAuthenticated) {
+      chatStore.session.connect((success, error) => {
+        if (!success) {
+          toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: "Chat connection failed: " + error,
+            life: 5000
+          })
+        } else {
+          console.log("connected")
+        }
+      });
+    }
+    chatStore.session.onMessage((message, roomId) => {
+      if (currentRoom.value && currentRoom.value.id === roomId) {
+        messages.value.push(message);
+        setTimeout(() => {
+          chatbox.value.scrollTop = chatbox.value.scrollHeight;
+        }, 100);
+      }
+      roomList.value.unshift(roomList.value.splice(roomList.value.findIndex((room) => room.id === roomId), 1)[0]);
+    });
+  }
+})
+
+
 </script>
 
 <template>
@@ -9,7 +98,7 @@
         <div class="in-head">
           <button>แชท</button>
           <img src="/src/assets/black.png" alt="profile" class="profile" />
-          <p class="ph">ชื่อผู้ใช้</p>
+          <p class="ph">{{ currentRoom ? getRoomName(currentRoom) : "ชื่อผู้ใช้"}}</p>
         </div>
         <div class="in-head">
           <img src="/src/assets/phone.png" alt="profile" class="icon" />
@@ -18,48 +107,20 @@
       </header>
       <div class="container">
       <div class="side-freind-bar">
-        <article>
+        <article v-for="room of roomList" @click="switchRoom(room.id)" :class="{ 'current-room' : room.id === currentRoom.id }">
             <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
-        </article>
-        <article>
-            <img src="/src/assets/black.png" alt="profile" class="in-profile" />
-            <p class="ph">ชื่อผู้ใช้</p>
+            <p class="ph">{{ getRoomName(room) }}</p>
         </article>
       </div>
       <div>
-        <div class="chatin-out">
-
+        <div class="chatin-out" ref="chatbox">
+          <p v-for="message in messages" class="message">{{ message.user.nickname }}: {{ message.text }}</p>
         </div>
         <footer>
           <img src="/src/assets/plus.png" alt="profile" class="icon" />
           <img src="/src/assets/im.png" alt="profile" class="icon" />
-          <input type="text" class="text-in" id="text-in">
-          <img src="/src/assets/send.png" alt="profile" class="icon" />
+          <input type="text" v-model="message" @keydown="checkInput" class="text-in" id="text-in">
+          <img src="/src/assets/send.png" @click="sendMessage" alt="profile" class="icon" />
         </footer>
         </div>
       </div>
@@ -145,6 +206,11 @@
     display: flex;
     border-bottom: 2px solid black;
     height: 14%;
+    cursor: pointer;
+  }
+
+  .side-freind-bar article.current-room {
+    background-color: #9d9ade;
   }
   .container{
     display: flex;
@@ -196,5 +262,12 @@
     left: 3px;
   z-index: -1;
   position: absolute;
+}
+
+.chatin-out {
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 69vh;
+  overflow-x: hidden;
 }
 </style>

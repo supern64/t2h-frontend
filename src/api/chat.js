@@ -55,7 +55,13 @@ export class ChatSession {
     sendMessage(message, roomId, callback) {
         this.socket.emit("message", message, roomId, (response) => {
             if (response.status === "ERROR") {
-                if (callback) callback(false, response.data.error);
+                if (response.status.data.error === "Session expired!") {
+                    this.reauthenticate((e) => {
+                        if (e) this.sendMessage(message, roomId, callback);
+                    });
+                } else {
+                    if (callback) callback(false, response.data.error);
+                }
                 return;
             }
             if (callback) callback(true);

@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import Card from 'primevue/card';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '../stores/user';
 import * as User from '../api/user';
 
@@ -9,6 +9,9 @@ const route = useRoute();
 const isSelf = route.params.id === "me";
 let user = ref();
 let doneFetch = ref(false);
+const userStore = useUserStore();
+const router = useRouter();
+
 let userBirthday = computed(() => {
     if (user.value.birthday) {
         const date = new Date(user.value.birthday);
@@ -17,17 +20,20 @@ let userBirthday = computed(() => {
     return "N/A";
 });
 
-if (isSelf) {
-    const userStore = useUserStore();
-    user.value = userStore.user;
-    doneFetch.value = true;
+if (!userStore.isLoggedIn && userStore.hasFetched) {
+    router.push('/login');
 } else {
-    User.getUser(route.params.id).then((res) => {
-        if (res.status === "SUCCESS") {
-            user = res.data.user;
-        }
+    if (isSelf) {
+        user.value = userStore.user;
         doneFetch.value = true;
-    });
+    } else {
+        User.getUser(route.params.id).then((res) => {
+            if (res.status === "SUCCESS") {
+                user = res.data.user;
+            }
+            doneFetch.value = true;
+        });
+    }
 }
 </script>
 
