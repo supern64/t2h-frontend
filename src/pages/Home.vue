@@ -8,6 +8,8 @@
       <img src="/assets/1.png" alt="logo" class="head-logo-image" />
     </div>
     <img src="/assets/5.png" alt="logo" class="home-rb" />
+    <img src="/assets/cloud1.png" alt="logo" class="cloud1" />
+    <img src="/assets/cloud2.png" alt="logo" class="cloud2" />
   </section>
 </template>
 
@@ -18,6 +20,21 @@ button{
   top: 57vh;
   right: 48vw;
   z-index: 1;
+}
+.cloud1{
+  position: absolute;
+  top: 10rem;
+  left: -8rem;
+  width: 25rem;
+  animation: slideleftAndFadenoRo 1s ease-out forwards;
+}
+.cloud2{
+  position: absolute;
+  top: 33rem;
+  right: -13rem;
+  height: 8rem;
+  width: 32rem;
+  animation: sliderightAndFadenoRo 1s ease-out forwards;
 }
 #Main{
   margin-top: -5.5rem;
@@ -79,6 +96,16 @@ section{
     transform: translateX(0) rotate(20deg);
   }
 }
+@keyframes sliderightAndFadenoRo {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 @keyframes slideleftAndFade {
   from {
     opacity: 0;
@@ -87,6 +114,16 @@ section{
   to {
     opacity: 1;
     transform: translateX(0) rotate(0deg);
+  }
+}
+@keyframes slideleftAndFadenoRo {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
   @keyframes slideupAndFade {
