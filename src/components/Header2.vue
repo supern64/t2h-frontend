@@ -35,10 +35,12 @@ const logout = () => {
     <nav id="header-nav">
       <div class="left-header">
         <router-link class="link" to="/">หน้าหลัก</router-link>
+        <div v-if="user.isLoggedIn">
           <router-link class="link" to="/test">แบบทดสอบ</router-link>
           <router-link class="link" to="/garph/me">ตารางสรุป</router-link>
           <router-link class="link" to="/chat">แชท</router-link>
-          <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
+        </div>
+        <router-link class="link" to="/emergency">โทรฉุกเฉิน</router-link>
       </div>
         <div class="right-header">
           <div class="right-h" v-if="user.isLoggedIn">
