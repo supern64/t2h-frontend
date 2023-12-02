@@ -7,12 +7,10 @@ const handleChoiceChange = (questionNumber) => (event) => {
 <template>
   <section>
     <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
+    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image2" />
+    <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image3" />
     <div class="container">
-      <div class="name-container">
-        <input type="text" placeholder="Name" class="text-in" id="name">
-        <input type="text" placeholder="Nickname" class="text-in" id="nickname">
-         <input type="text" placeholder="Date/Month/Year" class="text-in" id="date/year">
-      </div>
+      
     <!-- Question 1 -->
     <div class="question">
       <p>1. ท่านรู้สึกพึงพอใจในชีวิต</p>
@@ -346,8 +344,32 @@ const handleChoiceChange = (questionNumber) => (event) => {
       </div>
     </div>
 
-    <!-- Add questions 4 to 15 -->
-
+  <div class="QA-container">
+    <div>
+      <p>16. เมื่อคืนนอนเป็นยังไงบ้าง ?</p>
+      <input type="text" class="text-in" id="Question1">
+    </div>
+    <div class="Question-1">
+      <p>17. วันนี้รู้สึกเป็นยังไงบ้าง</p>
+      <input type="text"  class="text-in" id="Question2">
+    </div>
+    <div class="Question-1">
+      <p>18. วันนี้กินอะไรบ้าง อร่อยไหม ?</p>
+      <input type="text" class="text-in" id="Question3">
+    </div> 
+    <div class="Question-1">
+      <p>19. พบเจออะไรที่ทำให้ประทับใจ?</p>
+      <input type="text" class="text-in" id="Question4">
+    </div> 
+    <div class="Question-1">
+      <p>20. เต็มสิบให้คะแนนตัวเองเท่าไหร่?</p>
+      <input type="text" class="text-in" id="Question5">
+    </div> 
+    <div class="Question">
+      <p>21. พื้นที่สำหรับการระบายอารมณ์</p>
+      <input type="text" class="text-in" id="Question5">
+    </div> 
+  </div>
   </div>
   </section>
 </template>
@@ -363,19 +385,39 @@ section{
 }
 .text-in{
   height: 2.5rem;
-  width: 33%;
+  width: 100%;
   border-top-left-radius: 3rem;
   border-top-right-radius:3rem;
   border-bottom-right-radius:3rem;
   border-bottom-left-radius:3rem;
+  font-size: 18px;
 }
 .bg-image{
   width: 100vw;
-  height: 80vh;
+  height: 100%;
   top: -87px;
     left: -30px;
   z-index: -1;
   position: absolute;
+}
+.bg-image2{
+  width: 100vw;
+  height: 100%;
+  top: 710px;
+    left: -30px;
+  z-index: -2;
+  position: absolute;
+}
+.bg-image3{
+  width: 100vw;
+  height: 100%;
+  top: 900px;
+    left: -30px;
+  z-index: -2;
+  position: absolute;
+}
+.Question-1{
+  margin-top: 2rem;
 }
 .question{
   display: flex;
@@ -390,11 +432,10 @@ label{
 }
 .container{
   z-index: 1;
-  width: 105%;
+  width: 100%;
   height: auto;
     background-color: #F6EBD9;
-    margin-left: -2rem;
-    margin-right: -2rem;
+    margin-left: 0rem;
     margin-top: 0rem;
     border-radius: 3rem;
     padding: 2rem;
