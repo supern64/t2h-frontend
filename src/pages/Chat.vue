@@ -173,7 +173,6 @@
     outline: none;
     font-size: 22px;
     color: black;
-    pointer-events: none;
     margin: 0;
     margin-left: 0.5rem;
   }
