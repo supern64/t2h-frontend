@@ -5,16 +5,22 @@
   <section>
   <img src="/src/assets/ฉาก1.png" alt="logo" class="bg-image" />
   <div class="container">
-  <div class="dropdown-container">
-    <div v-for="option in options" :key="option.value" class="dropdown">
-      <div class="dropdown-trigger" @click="toggleDropdown(option)">
-        {{ option.label }}
-      </div>
-      <div v-if="option.showDropdown" class="dropdown-content">
-        {{ option.content }}
+    <div>
+      <div class="dropdown-container">
+        <div class="name-dropdown">
+        </div>
+        <div class="dropdownQ-container">
+          <div v-for="option in options" :key="option.value" class="dropdown">
+            <div class="dropdown-trigger" @click="toggleDropdown(option)">
+              {{ option.label }}
+            </div>
+            <div v-if="option.showDropdown" class="dropdown-content">
+              {{ option.content }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </section>
 </template>
@@ -48,8 +54,9 @@ section{
     border-top-right-radius: 3rem;
     padding: 2rem;
 }
-.dropdown-container {
+.dropdownQ-container {
   height: 50vh;
+  width: 50%;
   overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
   border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
   padding: 10px; /* Optional: Add padding to the container */
