@@ -54,38 +54,38 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>3. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(3)">
+        <input type="radio" name="question3" value="4" @change="handleChoiceChange(3)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(3)">
+        <input type="radio" name="question3" value="3" @change="handleChoiceChange(3)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(3)">
+        <input type="radio" name="question3" value="2" @change="handleChoiceChange(3)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(3)">
+        <input type="radio" name="question3" value="1" @change="handleChoiceChange(3)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
     <div class="question">
       <p>4. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(4)">
+        <input type="radio" name="question4" value="4" @change="handleChoiceChange(4)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(4)">
+        <input type="radio" name="question4" value="3" @change="handleChoiceChange(4)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(4)">
+        <input type="radio" name="question4" value="2" @change="handleChoiceChange(4)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(4)">
+        <input type="radio" name="question4" value="1" @change="handleChoiceChange(4)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -93,19 +93,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>5. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(5)">
+        <input type="radio" name="question5" value="4" @change="handleChoiceChange(5)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(5)">
+        <input type="radio" name="question5" value="3" @change="handleChoiceChange(5)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(5)">
+        <input type="radio" name="question5" value="2" @change="handleChoiceChange(5)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(5)">
+        <input type="radio" name="question5" value="1" @change="handleChoiceChange(5)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -193,19 +193,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>10. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(10)">
+        <input type="radio" name="question10" value="1" @change="handleChoiceChange(10)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(10)">
+        <input type="radio" name="question10" value="2" @change="handleChoiceChange(10)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(10)">
+        <input type="radio" name="question10" value="3" @change="handleChoiceChange(10)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(10)">
+        <input type="radio" name="question10" value="4" @change="handleChoiceChange(10)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -213,19 +213,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>11. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(11)">
+        <input type="radio" name="question11" value="1" @change="handleChoiceChange(11)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(11)">
+        <input type="radio" name="question11" value="2" @change="handleChoiceChange(11)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(11)">
+        <input type="radio" name="question11" value="3" @change="handleChoiceChange(11)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(11)">
+        <input type="radio" name="question11" value="4" @change="handleChoiceChange(11)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -233,19 +233,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>12. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(12)">
+        <input type="radio" name="question12" value="1" @change="handleChoiceChange(12)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(12)">
+        <input type="radio" name="question12" value="2" @change="handleChoiceChange(12)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(12)">
+        <input type="radio" name="question12" value="3" @change="handleChoiceChange(12)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(12)">
+        <input type="radio" name="question12" value="4" @change="handleChoiceChange(12)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -253,19 +253,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>13. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(13)">
+        <input type="radio" name="question13" value="1" @change="handleChoiceChange(13)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(13)">
+        <input type="radio" name="question13" value="2" @change="handleChoiceChange(13)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(13)">
+        <input type="radio" name="question13" value="3" @change="handleChoiceChange(13)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(13)">
+        <input type="radio" name="question13" value="4" @change="handleChoiceChange(13)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -273,19 +273,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>14. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(14)">
+        <input type="radio" name="question14" value="1" @change="handleChoiceChange(14)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(14)">
+        <input type="radio" name="question14" value="2" @change="handleChoiceChange(14)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(14)">
+        <input type="radio" name="question14" value="3" @change="handleChoiceChange(14)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(14)">
+        <input type="radio" name="question14" value="4" @change="handleChoiceChange(14)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
@@ -293,19 +293,19 @@ const handleChoiceChange = (questionNumber) => (event) => {
     <div class="question">
       <p>15. What is the capital of Japan?</p>
       <label>
-        <input type="radio" name="question3" value="a" @change="handleChoiceChange(15)">
+        <input type="radio" name="question15" value="1" @change="handleChoiceChange(15)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="b" @change="handleChoiceChange(15)">
+        <input type="radio" name="question15" value="2" @change="handleChoiceChange(15)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="c" @change="handleChoiceChange(15)">
+        <input type="radio" name="question15" value="3" @change="handleChoiceChange(15)">
         <p class="none-text">D. Bangkok</p>
       </label>
       <label>
-        <input type="radio" name="question3" value="d" @change="handleChoiceChange(15)">
+        <input type="radio" name="question15" value="4" @change="handleChoiceChange(15)">
         <p class="none-text">D. Bangkok</p>
       </label>
     </div>
