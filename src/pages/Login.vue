@@ -18,7 +18,7 @@ const login = () => {
     if (res.status === "ERROR") {
       toast.add({
         severity: "error",
-        summary: "Error",
+        summary: "ผิดพลาด",
         detail: res.data.error,
         life: 5000
       });
@@ -26,8 +26,8 @@ const login = () => {
       user.setUser(res.data.user);
       toast.add({
         severity: "success",
-        summary: "Success",
-        detail: "Login successful",
+        summary: "สำเร็จ",
+        detail: "เข้าสู่ระบบสำเร็จ",
         life: 3000
       });
       router.push("/");
@@ -38,18 +38,18 @@ const login = () => {
 
 <template>
   <div class="login-form">
-    <span style="font-size: 1.5rem; font-weight: 700;">Login</span>
+    <span style="font-size: 1.5rem; font-weight: 700;">ลงชื่อเข้าใช้</span>
     <div class="input-group">
       <span class="p-input-icon-left">
         <i class="pi pi-envelope"></i>
-        <InputText id="email" v-model="email" placeholder="E-mail" />
+        <InputText id="email" v-model="email" placeholder="อีเมล" />
       </span>
       <span>
-        <Password id="password" v-model="password" :feedback="false" placeholder="Password" toggle-mask=""/>
+        <Password id="password" v-model="password" :feedback="false" placeholder="รหัสผ่าน" toggle-mask=""/>
       </span>
     </div>
     <div class="input-group">
-      <Button label="Login" @click="login" />
+      <Button label="ลงชื่อเข้าใช้" @click="login" />
     </div>
   </div>
 </template>

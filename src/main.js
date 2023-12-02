@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router'
 import PrimeVue from 'primevue/config'
 import ToastService from 'primevue/toastservice'
-import 'primevue/resources/themes/md-dark-indigo/theme.css'
+import 'primevue/resources/themes/lara-light-amber/theme.css'
 import 'primeicons/primeicons.css'
 import './style.css'
 import App from './App.vue'
@@ -28,7 +28,7 @@ const router = createRouter({
         { path: '/login', component: Login },
         { path: '/signup', component: Signup },
         { path: '/test', component: Test },
-        { path: '/garph', component: Garph },
+        { path: '/garph/:id', component: Garph },
         { path: '/chat', component: Chat },
         { path: '/emergency', component: Emergency },
         { path: "/user/:id", component: User }

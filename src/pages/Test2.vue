@@ -48,7 +48,7 @@ function handleSubmit() {
   if (ratingAnswers.includes(0) || freeformAnswers.includes('')) {
     toast.add({
       severity: 'error',
-      summary: 'Error',
+      summary: 'ผิดพลาด',
       detail: 'กรุณาตอบคำถามให้ครบทุกข้อ',
       life: 3000
     })
@@ -80,7 +80,7 @@ function handleSubmit() {
   createAssessment(data).then(() => {
     toast.add({
       severity: 'success',
-      summary: 'Success',
+      summary: 'สำเร็จ',
       detail: 'ส่งคำตอบสำเร็จ',
       life: 3000
     })
@@ -104,7 +104,6 @@ function handleSubmit() {
           <p class="r">มากที่สุด</p>
         </div>
       </header>
-=======
       
       <div v-for="question in ratingQuestions" :key="ratingQuestions.indexOf(question)" class="question">
         <p>{{ ratingQuestions.indexOf(question) + 1 }}. {{ question }}</p>
@@ -199,6 +198,10 @@ button{
   border-radius: 20px;
   font-size: 1.2rem;
   cursor: pointer;
+}
+.r {
+  margin-left: 1.5rem;
+
 }
 </style>
 

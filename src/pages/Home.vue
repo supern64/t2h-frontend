@@ -6,12 +6,8 @@
     <img src="/assets/สายรุ้ง1.png" alt="rainbow" class="rainbow-image" />
     <div class="img">
       <img src="/assets/1.png" alt="logo" class="head-logo-image" />
-      <button>something</button>
     </div>
     <img src="/assets/5.png" alt="logo" class="home-rb" />
-  </section>
-  <section>
-    sadasd
   </section>
 </template>
 

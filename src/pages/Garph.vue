@@ -1,4 +1,62 @@
 <script setup>
+import { ref, computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { useToast } from 'primevue/usetoast';
+import Dropdown from 'primevue/dropdown';
+import { useUserStore } from '../stores/user';
+import * as Assessment from '../api/assessment';
+import * as User from '../api/user';
+
+const route = useRoute();
+const userStore = useUserStore();
+const toast = useToast();
+
+const isSelf = computed(() => {
+    return route.params.id === "me";
+});
+
+const currentAssessment = ref(null);
+const assessments = ref([]);
+const user = ref(null);
+
+const toggleDropdown = (option) => {
+    option.showDropdown = !option.showDropdown
+}
+
+onMounted(() => {
+    if (isSelf.value) {
+        user.value = userStore.user.nickname;
+        Assessment.getAssessmentMe().then((res) => {
+            if (res.status === "SUCCESS") {
+                for (const i of res.data.assessments) {
+                  i.showDropdown = false;
+                }
+                assessments.value = res.data.assessments;
+            }
+        });
+    } else {
+        User.getUser(route.params.id).then((res) => {
+            if (res.status === "SUCCESS") {
+                user.value = res.data.user.nickname;
+            }
+        });
+        Assessment.getAssessment(route.params.id).then((res) => {
+            if (res.status === "SUCCESS") {
+                for (const i of res.data.assessments) {
+                  i.showDropdown = false;
+                }
+                assessments.value = res.data.assessments;
+            } else {
+                toast.add({
+                    severity: "error",
+                    summary: "Error",
+                    detail: res.data.error,
+                    life: 3000
+                });
+            }
+        });
+    }
+})
 </script>
 
 <template>
@@ -8,17 +66,24 @@
     <div>
       <div class="dropdown-container">
         <div class="name-dropdown">
+          <span style="font-weight: bold; font-size: larger;">ผลการประเมินของ {{ user  }}</span>
         </div>
         <div class="dropdownQ-container">
-          <div v-for="option in options" :key="option.value" class="dropdown">
-            <div class="dropdown-trigger" @click="toggleDropdown(option)">
-              <img src="/assets/arrow.png" alt="logo" class="arrow" />
-              {{ option.label }}
-            </div>
-            <div v-if="option.showDropdown" class="dropdown-content">
-              {{ option.content }}
-            </div>
+          <div class="dropdowns-top">
+            <Dropdown v-model="currentAssessment" :options="assessments" placeholder="เลือกครั้งที่ประเมิน" :style="{ loading: !assessments }" option-label="createdAt" />
           </div>
+          <div v-if="currentAssessment">
+            <span style="font-size: larger; font-weight: 500;">ประเมินได้ {{ currentAssessment.score }} คะแนน</span>
+            <div v-for="answer in currentAssessment.answers" :key="currentAssessment.question" class="dropdown">
+              <div class="dropdown-trigger" @click="toggleDropdown(answer)">
+                <img src="/assets/arrow.png" alt="logo" class="arrow" />
+                {{ answer.question }}
+              </div>
+              <div v-if="answer.showDropdown" class="dropdown-content">
+                {{ answer.answer }}
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
       <div class="score-information">
@@ -35,9 +100,6 @@
           </p>
         </div>
       </div>
-    </div>
-    <div>
-
     </div>
   </div>
 </section>
@@ -117,6 +179,11 @@ section{
   border-radius: 2rem; 
 }
 
+.dropdowns-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
 </style>
 
 <style>
@@ -125,25 +192,3 @@ section{
   background-repeat: repeat-y;
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      options: [
-        { value: 'Question 1', label: 'Question 1', content: 'Content for Option 1', showDropdown: false },
-        { value: 'Question 2', label: 'Question 2', content: 'Content for Option 2', showDropdown: false },
-        { value: 'Question 3', label: 'Question 3', content: 'Content for Option 3', showDropdown: false },
-        { value: 'Question 4', label: 'Question 4', content: 'Content for Option 4', showDropdown: false },
-        { value: 'Question 5', label: 'Question 5', content: 'Content for Option 5', showDropdown: false },
-        { value: 'Question 6', label: 'Question 6', content: 'Content for Option 6', showDropdown: false },
-      ]
-    };
-  },
-  methods: {
-    toggleDropdown(option) {
-      option.showDropdown = !option.showDropdown;
-    }
-  }
-}
-</script>
